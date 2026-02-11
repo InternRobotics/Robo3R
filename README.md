@@ -13,7 +13,7 @@
 
 <div id="top" align="center">
 
-[![arXiv](https://img.shields.io/badge/arXiv-2601.13175-green)]()
+[![arXiv](https://img.shields.io/badge/arXiv-2602.10101-red)](https://arxiv.org/abs/2602.10101)
 [![Homepage](https://img.shields.io/badge/Homepage-%F0%9F%8C%90-blue)](https://yangsizhe.github.io/robo3r/)
 
 </div>
