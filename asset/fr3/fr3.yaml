@@ -1,0 +1,158 @@
+robot_cfg:
+  kinematics:
+    usd_path: null
+    usd_robot_root: null
+    isaac_usd_path: null
+    usd_flip_joints: {}
+    usd_flip_joint_limits: []
+    urdf_path: "urdf/fr3_no_finger_actual_joint.urdf"
+    asset_root_path: "urdf"
+    base_link: "base_link_for_offset"
+    link_names: [
+      "joint_1_actual",
+      "joint_2_actual",
+      "joint_3_actual",
+      "joint_4_actual",
+      "joint_5_actual",
+      "joint_6_actual",
+      "joint_7_actual",
+      "joint_8_actual",
+    ]
+    ee_link: "ee_link"
+
+    extra_links: null
+
+    collision_link_names:
+      [
+        # "fr3_link0",
+        # "fr3_link1",
+        # "fr3_link2",
+        # "fr3_link3",
+        # "fr3_link4",
+        # "fr3_link5",
+        # "fr3_link6",
+        # "fr3_link7",
+      ]
+    # collision_spheres:
+    #   fr3_link0:
+    #     - "center": [0.0, 0.0, 0.085]
+    #       "radius": 0.03
+    #     - "center": [-0.1, -0.0, 0.085]
+    #       "radius": 0.03
+    #   fr3_link1:
+    #     - "center": [0.0, -0.08, 0.0]
+    #       "radius": 0.055
+    #     - "center": [0.0, -0.03, 0.0]
+    #       "radius": 0.06
+    #     - "center": [0.0, 0.0, -0.12]
+    #       "radius": 0.06
+    #     - "center": [0.0, 0.0, -0.17]
+    #       "radius": 0.06
+    #   fr3_link2:
+    #     - "center": [0.0, 0.0, 0.03]
+    #       "radius": 0.055
+    #     - "center": [0.0, 0.0, 0.08]
+    #       "radius": 0.055
+    #     - "center": [0.0, -0.12, 0.0]
+    #       "radius": 0.055
+    #     - "center": [0.0, -0.17, 0.0]
+    #       "radius": 0.055
+    #   fr3_link3:
+    #     - "center": [0.0, 0.0, -0.06]
+    #       "radius": 0.05
+    #     - "center": [0.0, 0.0, -0.1]
+    #       "radius": 0.06
+    #     - "center": [0.08, 0.06, 0.0]
+    #       "radius": 0.052
+    #     - "center": [0.08, 0.02, 0.0]
+    #       "radius": 0.052
+    #   fr3_link4:
+    #     - "center": [0.0, 0.0, 0.02]
+    #       "radius": 0.052
+    #     - "center": [0.0, 0.0, 0.06]
+    #       "radius": 0.052
+    #     - "center": [-0.08, 0.095, 0.0]
+    #       "radius": 0.055
+    #     - "center": [-0.08, 0.06, 0.0]
+    #       "radius": 0.052
+    #   fr3_link5:
+    #     - "center": [0.0, 0.03, 0.0]
+    #       "radius": 0.05
+    #     - "center": [0.0, 0.082, 0.0]
+    #       "radius": 0.05
+    #     - "center": [0.0, 0.000, -0.22]
+    #       "radius": 0.05
+    #     - "center": [0.0, 0.052, -0.18]
+    #       "radius": 0.04
+    #     - "center": [0.01, 0.08, -0.14]
+    #       "radius": 0.022
+    #     - "center": [0.01, 0.085, -0.11]
+    #       "radius": 0.022
+    #     - "center": [0.01, 0.09, -0.08]
+    #       "radius": 0.022
+    #     - "center": [0.01, 0.095, -0.05]
+    #       "radius": 0.022
+    #     - "center": [-0.01, 0.08, -0.14]
+    #       "radius": 0.022
+    #     - "center": [-0.01, 0.085, -0.11]
+    #       "radius": 0.022
+    #     - "center": [-0.01, 0.09, -0.08]
+    #       "radius": 0.022
+    #     - "center": [-0.01, 0.095, -0.05]
+    #       "radius": 0.022
+    #     - "center": [0.0, -0.009, 0.0]
+    #       "radius": 0.05
+    #   fr3_link6:
+    #     - "center": [0.085, 0.035, 0.0]
+    #       "radius": 0.045 
+    #     - "center": [0.085, 0.0, 0.0]
+    #       "radius": 0.045 
+    #     - "center": [0.085, -0.015, 0.0]
+    #       "radius": 0.045 
+    #   fr3_link7:
+    #     - "center": [0.0, 0.0, 0.07]
+    #       "radius": 0.045
+    #     - "center": [0.02, 0.04, 0.08]
+    #       "radius": 0.024
+    #     - "center": [0.04, 0.02, 0.08]
+    #       "radius": 0.024
+    #     - "center": [0.04, 0.06, 0.085]
+    #       "radius": 0.02
+    #     - "center": [0.06, 0.04, 0.085]
+    #       "radius": 0.02
+
+    collision_sphere_buffer: 0.0
+    extra_collision_spheres: {}
+    self_collision_ignore:
+      {
+        # "fr3_link0": ["fr3_link1", "fr3_link2"],
+        # "fr3_link1": ["fr3_link2", "fr3_link3", "fr3_link4"],
+        # "fr3_link2": ["fr3_link3", "fr3_link4"],
+        # "fr3_link3": ["fr3_link4", "fr3_link6"],
+        # "fr3_link4": ["fr3_link5", "fr3_link6", "fr3_link7", "fr3_link8"],
+        # "fr3_link5": ["fr3_link6", "fr3_link7"],
+        # "fr3_link6": ["fr3_link7"],
+      }
+    self_collision_buffer:
+      {
+        # "fr3_link0": 0.1,
+        # "fr3_link1": 0.05,
+        # "fr3_link2": 0.0,
+        # "fr3_link3": 0.0,
+        # "fr3_link4": 0.0,
+        # "fr3_link5": 0.0,
+        # "fr3_link6": 0.0,
+        # "fr3_link7": 0.0,
+      }
+    use_global_cumul: True
+    mesh_link_names: []
+    lock_joints: {'pos_x_joint': 0.0, 'pos_y_joint': 0.0, 'pos_z_joint': 0.0, 'rot_x_joint': 0.0, 'rot_y_joint': 0.0, 'rot_z_joint': 0.0}
+
+    cspace:
+      joint_names: ['pos_x_joint', 'pos_y_joint', 'pos_z_joint', 'rot_x_joint', 'rot_y_joint', 'rot_z_joint', "fr3_joint1", "fr3_joint2", "fr3_joint3", "fr3_joint4", "fr3_joint5", "fr3_joint6", "fr3_joint7"]
+      retract_config: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0,   0.0, 0.0, 0.0, -1.5, 0.0, 1.7, 0.7853982]
+      null_space_weight: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0,   1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+      cspace_distance_weight: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0,   1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+      max_jerk: 500.0
+      max_acceleration: 15.0
+      position_limit_clip: 0.1

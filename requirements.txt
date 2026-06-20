@@ -1,0 +1,15 @@
+hydra-core==1.3.2
+numpy==1.25.1
+scipy==1.14.1
+opencv-python-headless==4.10.0.84
+Pillow==11.3.0
+torch-tensorrt==2.7.0
+trimesh
+plyfile
+pyrr
+safetensors
+tqdm
+einops
+omegaconf
+wandb
+huggingface_hub

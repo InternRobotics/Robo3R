@@ -1,0 +1,57 @@
+report_to_wandb: True
+wandb_project: robo3r
+run_name: exp
+save_checkpoint: True
+save_checkpoint_freq: 5000_steps  # XXX_steps or XXX_epochs
+test: True
+test_freq: 5000_steps  # XXX_steps or XXX_epochs
+grad_acc_step: 1
+use_amp: True
+amp_dtype: bf16
+max_num_of_imgs_per_gpu: 12
+num_view: 2
+num_view_min: 1
+resolution: '[(630,476)]'  # , (616,476), (630, 462), (616,462)
+
+seed: 42
+num_epoch: 10000
+num_warmup: 500_steps
+checkpoint_dir: ./output/checkpoint
+resume_from_checkpoint: null
+
+model:
+  pi3_ckpt_path: path/to/pi3.pth
+  fuse_robot_state: True
+  pred_abs_pose_via_pnp: False
+
+dataset:
+  train:
+    - path: path/to/100kScenes_dtc-objaverse_not-in-gripper
+      num_of_scenes: 1000000  # 100000 * 10
+    - path: path/to/20kScenes_dtc-objaverse_in-gripper
+      num_of_scenes: 200000  # 20000 * 10
+  test:
+    - path: path/to/1kScenes_not-in-gripper_test
+      num_of_scenes: 2000  # 200 * 10
+    - path: path/to/1kScenes_in-gripper_test
+      num_of_scenes: 2000  # 200 * 10
+
+optimizer:
+  lr: 2e-5
+  weight_decay: 0.05
+  betas: [0.9, 0.95]
+
+max_grad_norm: 1.0
+
+distributed_sampler:
+  shuffle: True
+  seed: ${seed}
+  drop_last: ${dataloader.drop_last}
+
+dataloader:
+  batch_size: 32
+  num_workers: 8
+  pin_memory: True
+  persistent_workers: True
+  prefetch_factor: 5
+  drop_last: True

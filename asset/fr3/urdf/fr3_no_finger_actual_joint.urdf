@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot name="fr3">
+    <link name="base_link_for_offset"/>
+    <link name="pos_x_link"/>
+    <link name="pos_y_link"/>
+    <link name="pos_z_link"/>
+    <link name="rot_x_link"/>
+    <link name="rot_y_link"/>
+    <joint name="pos_x_joint" type="prismatic">
+      <parent link="base_link_for_offset"/>
+      <child link="pos_x_link"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <axis xyz="1 0 0"/>
+      <limit lower="-10" upper="10" effort="100" velocity="1"/>
+    </joint>
+    <joint name="pos_y_joint" type="prismatic">
+      <parent link="pos_x_link"/>
+      <child link="pos_y_link"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <axis xyz="0 1 0"/>
+      <limit lower="-10" upper="10" effort="100" velocity="1"/>
+    </joint>
+    <joint name="pos_z_joint" type="prismatic">
+      <parent link="pos_y_link"/>
+      <child link="pos_z_link"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <axis xyz="0 0 1"/>
+      <limit lower="-10" upper="10" effort="100" velocity="1"/>
+    </joint>
+    <joint name="rot_x_joint" type="revolute">
+      <parent link="pos_z_link"/>
+      <child link="rot_x_link"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <axis xyz="1 0 0"/>
+      <limit lower="-6.28" upper="6.28" effort="100" velocity="1"/>
+    </joint>
+    <joint name="rot_y_joint" type="revolute">
+      <parent link="rot_x_link"/>
+      <child link="rot_y_link"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <axis xyz="0 1 0"/>
+      <limit lower="-6.28" upper="6.28" effort="100" velocity="1"/>
+    </joint>
+    <joint name="rot_z_joint" type="revolute">
+      <parent link="rot_y_link"/>
+      <child link="base_link"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <axis xyz="0 0 1"/>
+      <limit lower="-6.28" upper="6.28" effort="100" velocity="1"/>
+    </joint>
+
+  <link name="base_link"/>
+  <link name="fr3_link0"/>
+  <link name="fr3_link1">
+    <inertial>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <mass value="2.9274654"/>
+      <inertia ixx="0.001" ixy="0." ixz="0." iyy="0.001" iyz="0." izz="0.001"/>
+    </inertial>
+  </link>
+  <link name="fr3_link2">
+    <inertial>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <mass value="2.9355371"/>
+      <inertia ixx="0.001" ixy="0." ixz="0." iyy="0.001" iyz="0." izz="0.001"/>
+    </inertial>
+  </link>
+  <link name="fr3_link3">
+    <inertial>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <mass value="2.2449014"/>
+      <inertia ixx="0.001" ixy="0." ixz="0." iyy="0.001" iyz="0." izz="0.001"/>
+    </inertial>
+  </link>
+  <link name="fr3_link4">
+    <inertial>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <mass value="2.6155956"/>
+      <inertia ixx="0.001" ixy="0." ixz="0." iyy="0.001" iyz="0." izz="0.001"/>
+    </inertial>
+  </link>
+  <link name="fr3_link5">
+    <inertial>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <mass value="2.3271208"/>
+      <inertia ixx="0.001" ixy="0." ixz="0." iyy="0.001" iyz="0." izz="0.001"/>
+    </inertial>
+  </link>
+  <link name="fr3_link6">
+    <inertial>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <mass value="1.8170377"/>
+      <inertia ixx="0.001" ixy="0." ixz="0." iyy="0.001" iyz="0." izz="0.001"/>
+    </inertial>
+  </link>
+  <link name="fr3_link7">
+    <inertial>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <mass value="0.6271433"/>
+      <inertia ixx="0.001" ixy="0." ixz="0." iyy="0.001" iyz="0." izz="0.001"/>
+    </inertial>
+  </link>
+  <link name="fr3_link8"/>
+  <link name="fr3_hand">
+    <inertial>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <mass value="0.73"/>
+      <inertia ixx="0.001" ixy="0." ixz="0." iyy="0.001" iyz="0." izz="0.001"/>
+    </inertial>
+  </link>
+
+  <joint name="root_joint" type="fixed">
+    <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+    <parent link="base_link"/>
+    <child link="fr3_link0"/>
+  </joint>
+  <joint name="fr3_joint1" type="revolute">
+    <origin xyz="0. 0. 0.333" rpy="0. -1.5707964 0. "/>
+    <parent link="fr3_link0"/>
+    <child link="fr3_link1"/>
+    <axis xyz="1. 0. 0."/>
+    <limit lower="-2.7436999" upper="2.7436999" effort="87." velocity="2.6199998"/>
+  </joint>
+  <joint name="fr3_joint2" type="revolute">
+    <origin xyz="0. 0. 0." rpy="0. 0. 1.5707964"/>
+    <parent link="fr3_link1"/>
+    <child link="fr3_link2"/>
+    <axis xyz="1. 0. 0."/>
+    <limit lower="-1.7836999" upper="1.7836999" effort="87." velocity="2.6199998"/>
+  </joint>
+  <joint name="fr3_joint3" type="revolute">
+    <origin xyz="0. -0.316 0. " rpy="0. 0. -1.5707963"/>
+    <parent link="fr3_link2"/>
+    <child link="fr3_link3"/>
+    <axis xyz="1. 0. 0."/>
+    <limit lower="-2.9006999" upper="2.9006999" effort="87." velocity="2.6199998"/>
+  </joint>
+  <joint name="fr3_joint4" type="revolute">
+    <origin xyz="-0. 0. -0.0825" rpy="0. 0. -1.5707964"/>
+    <parent link="fr3_link3"/>
+    <child link="fr3_link4"/>
+    <axis xyz="1. 0. 0."/>
+    <limit lower="-3.0420999" upper="-0.1518" effort="87." velocity="2.6199998"/>
+  </joint>
+  <joint name="fr3_joint5" type="revolute">
+    <origin xyz="0.0000001 0.384 0.0825 " rpy="0. 0. 1.5707961"/>
+    <parent link="fr3_link4"/>
+    <child link="fr3_link5"/>
+    <axis xyz="1. 0. 0."/>
+    <limit lower="-2.8064999" upper="2.8064999" effort="12." velocity="5.2600004"/>
+  </joint>
+  <joint name="fr3_joint6" type="revolute">
+    <origin xyz="0. 0. -0." rpy="0. 0. -1.5707961"/>
+    <parent link="fr3_link5"/>
+    <child link="fr3_link6"/>
+    <axis xyz="1. 0. 0."/>
+    <limit lower="0.5445" upper="4.5168996" effort="12." velocity="4.1799999"/>
+  </joint>
+  <joint name="fr3_joint7" type="revolute">
+    <origin xyz="0. 0. -0.088" rpy="0. 0. -1.5707965"/>
+    <parent link="fr3_link6"/>
+    <child link="fr3_link7"/>
+    <axis xyz="1. 0. 0."/>
+    <limit lower="-3.0158997" upper="3.0158997" effort="12." velocity="5.2600004"/>
+  </joint>
+  <joint name="fr3_joint8" type="fixed">
+    <origin xyz="0.107 0. 0. " rpy="-0.0000002 1.5707964 0. "/>
+    <parent link="fr3_link7"/>
+    <child link="fr3_link8"/>
+  </joint>
+  <joint name="fr3_hand_joint" type="fixed">
+    <origin xyz="0. 0. 0." rpy="0. 0. -0.7853982"/>
+    <parent link="fr3_link8"/>
+    <child link="fr3_hand"/>
+  </joint>
+
+
+  <link name="ee_link"/>
+  <joint name="ee_joint" type="fixed">
+    <origin xyz="0.0 0.0 0.11" rpy="3.141592653589793 0.0 0.0"/>
+    <parent link="fr3_hand"/>
+    <child link="ee_link"/>
+  </joint>
+
+  <link name="joint_1_actual"/>
+  <joint name="joint_1_actual" type="fixed">
+    <origin xyz="0.0 0.0 0.14" rpy="0.0 0.0 0.0"/>
+    <parent link="fr3_link0"/>
+    <child link="joint_1_actual"/>
+  </joint>
+  <link name="joint_2_actual"/>
+  <joint name="joint_2_actual" type="fixed">
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+    <parent link="fr3_link1"/>
+    <child link="joint_2_actual"/>
+  </joint>
+  <link name="joint_3_actual"/>
+  <joint name="joint_3_actual" type="fixed">
+    <origin xyz="0.0 -0.194 0.0" rpy="0.0 0.0 0.0"/>
+    <parent link="fr3_link2"/>
+    <child link="joint_3_actual"/>
+  </joint>
+  <link name="joint_4_actual"/>
+  <joint name="joint_4_actual" type="fixed">
+    <origin xyz="-0. 0. -0.0825" rpy="0.0 0.0 0.0"/>
+    <parent link="fr3_link3"/>
+    <child link="joint_4_actual"/>
+  </joint>
+  <link name="joint_5_actual"/>
+  <joint name="joint_5_actual" type="fixed">
+    <origin xyz="0.0000001 0.124 0.0825" rpy="0.0 0.0 0.0"/>
+    <parent link="fr3_link4"/>
+    <child link="joint_5_actual"/>
+  </joint>
+  <link name="joint_6_actual"/>
+  <joint name="joint_6_actual" type="fixed">
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+    <parent link="fr3_link5"/>
+    <child link="joint_6_actual"/>
+  </joint>
+  <link name="joint_7_actual"/>
+  <joint name="joint_7_actual" type="fixed">
+    <origin xyz="0.0 -0.08 -0.088" rpy="0.0 0.0 0.0"/>
+    <parent link="fr3_link6"/>
+    <child link="joint_7_actual"/>
+  </joint>
+  <link name="joint_8_actual"/>
+  <joint name="joint_8_actual" type="fixed">
+    <origin xyz="0.0 -0.15 -0.088" rpy="0.0 0.0 0.0"/>
+    <parent link="fr3_link6"/>
+    <child link="joint_8_actual"/>
+  </joint>
+</robot>

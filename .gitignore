@@ -1,0 +1,8 @@
+output/
+checkpoint/
+data/
+exp/
+__pycache__/
+wandb/
+tmp/
+third_party/
