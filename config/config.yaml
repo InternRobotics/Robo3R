@@ -35,6 +35,11 @@ dataset:
       num_of_scenes: 2000  # 200 * 10
     - path: path/to/1kScenes_in-gripper_test
       num_of_scenes: 2000  # 200 * 10
+  eval:
+    - path: path/to/1kScenes_not-in-gripper_test
+      num_of_scenes: 10000  # 1000 * 10
+    - path: path/to/1kScenes_in-gripper_test
+      num_of_scenes: 10000  # 1000 * 10
 
 optimizer:
   lr: 2e-5

@@ -73,7 +73,12 @@ def main(cfg):
     # dataset
     cfg.resolution = '[(630,476)]'
     data_norm_type = 'identity'
-    test_dataset_config = f"ThreeDP4MWAI(split='test', resolution={cfg.resolution}, principal_point_centered=False, aug_crop=16, transform='colorjitter+grayscale+gaublur', data_norm_type='{data_norm_type}', ROOT='/shared/smartbot/yangsizhe/data/3dp4m/1kScenes_not-in-gripper_test', variable_num_views=True, num_views={cfg.num_view}, num_views_min={cfg.num_view_min}, num_of_scenes=1000 * 10) + ThreeDP4MWAI(split='test', resolution={cfg.resolution}, principal_point_centered=False, aug_crop=16, transform='colorjitter+grayscale+gaublur', data_norm_type='{data_norm_type}', ROOT='/shared/smartbot/yangsizhe/data/3dp4m/1kScenes_in-gripper_test', variable_num_views=True, num_views={cfg.num_view}, num_views_min={cfg.num_view_min}, num_of_scenes=1000 * 10)"
+    def build_dataset_config(entries, split):
+        return " + ".join(
+            f"ThreeDP4MWAI(split='{split}', resolution={cfg.resolution}, principal_point_centered=False, aug_crop=16, transform='colorjitter+grayscale+gaublur', data_norm_type='{data_norm_type}', ROOT='{entry.path}', variable_num_views=True, num_views={cfg.num_view}, num_views_min={cfg.num_view_min}, num_of_scenes={entry.num_of_scenes})"
+            for entry in entries
+        )
+    test_dataset_config = build_dataset_config(cfg.dataset.eval, 'test')
     test_dataloader = build_dataloader(
         dataset=test_dataset_config,
         num_workers=cfg.dataloader.num_workers,
